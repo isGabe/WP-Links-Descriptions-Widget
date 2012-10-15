@@ -4,7 +4,8 @@ Plugin Name: Links From Custom Menu Widget
 Plugin URI: https://github.com/TheF-Stop/WP-Links-Descriptions-Widget
 Description: Extends WP Custom menu Widget to include link descriptions
 Author: Gabriel Luethje
-Version: 1
+Version: 0.1
+Author URI: http://thefstopdesign.com
 */
 
 /*
@@ -31,7 +32,7 @@ class LinksWidget extends WP_Widget
 {
 
   function __construct() {
-    $widget_ops = array( 'description' => __('Use this widget to add one of your custom menus as a widget.') );
+    $widget_ops = array( 'description' => __('Use this widget to add one of your custom menus as a widget. You can also add descriptions in the menu editor.') );
     parent::__construct( 'nav_menu', __('Links Menu - Plugin'), $widget_ops );
   }
  
