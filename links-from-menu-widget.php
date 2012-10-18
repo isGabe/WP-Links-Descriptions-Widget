@@ -14,7 +14,7 @@ Author URI: http://thefstopdesign.com
  * @see http://wordpress.stackexchange.com/q/14037/
  * @author toscho, http://toscho.de
  */
-class Description_Walker extends Walker_Nav_Menu
+class FStop_Description_Walker extends Walker_Nav_Menu
   {
       function start_el(&$output, $item, $depth, $args) {
       parent::start_el($output, $item, $depth, $args);
@@ -28,7 +28,7 @@ class Description_Walker extends Walker_Nav_Menu
  * The only change is the addition of the walker to the wp_nav_menu call on line 50.
  */
 
-class LinksWidget extends WP_Widget
+class FStopLinksWidget extends WP_Widget
 {
 
   function __construct() {
@@ -51,7 +51,7 @@ class LinksWidget extends WP_Widget
     if ( !empty($instance['title']) )
       echo $args['before_title'] . $instance['title'] . $args['after_title'];
 
-    wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'walker' => new Description_Walker) ); // calling the new walker so we have descriptions
+    wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'walker' => new FStop_Description_Walker) ); // calling the new walker so we have descriptions
 
     echo $args['after_widget'];
   }
@@ -92,11 +92,8 @@ class LinksWidget extends WP_Widget
     </p>
     <?php
   }
- 
 }
 
-add_action( 'widgets_init', create_function('', 'return register_widget("LinksWidget");') );
+add_action( 'widgets_init', create_function('', 'return register_widget("FStopLinksWidget");') );
 
-/* That's it! Nice and simple. */
 ?>
-
